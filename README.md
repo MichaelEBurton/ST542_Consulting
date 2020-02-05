@@ -19,5 +19,5 @@
 3. Submit a pull request
 
 ### Resources
-**Git:** [Software Carpentry Tutorial](http://swcarpentry.github.io/git-novice/)
+**Git:** [Software Carpentry Tutorial](http://swcarpentry.github.io/git-novice/)       
 **Unix Cmd Line**: [Software Carpentry Tutorial](http://swcarpentry.github.io/shell-novice/)
