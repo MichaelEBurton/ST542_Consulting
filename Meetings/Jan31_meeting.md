@@ -12,19 +12,20 @@
 * The machine can analyze on 96-well plate in about 30 minutes
   + Lots of Datasets
     - "We don't know how much data you need"
-    - How many significant digits in activity do we need? 
-    - Are we allowed to reject any data points (outliers)?
+    - How many significant digits in activity do we need? - I think with this, we should try to get them to keep as many as possible? I don't know why they would want to cut any off? It doesn't seem that there will be any issues with computation. 
+    - Are we allowed to reject any data points (outliers)? I think we should definitely discuss this with them, I don't see any reason as to why they throw them out, unless they know that the outliers were caused by some measurement effect or error made when collecting that sample. 
     - Is the error spatial?
     - How many control columns do we need?
     
 * "Data Mining"
   + Exporting information to excel currently
     - Timestamp is currently being calculated as the first time below .2 minus the first timestamp minus the injection time.
-    - Is .2 the best choice, or is there a better cutoff to use?
+    - Is .2 the best choice, or is there a better cutoff to use? - This is a good point, what is the reason for choosing this point? 
     - There is currently no way to tell the machine what samples it's analyzing, you have to do this manually.
     
 * Other questions/notes
-  + Variance between control samples larger than variance between enzymes samples; is this okay?
+  + Variance between control samples larger than variance between enzymes samples; is this okay? this 
+    - 
   + Open to how to arrange the specimens
   + Open to any techniques that could help
   
