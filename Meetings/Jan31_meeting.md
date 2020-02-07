@@ -24,8 +24,7 @@
     - There is currently no way to tell the machine what samples it's analyzing, you have to do this manually.
     
 * Other questions/notes
-  + Variance between control samples larger than variance between enzymes samples; is this okay? this 
-    - 
+  + Variance between control samples larger than variance between enzymes samples; is this okay? 
   + Open to how to arrange the specimens
   + Open to any techniques that could help
   
