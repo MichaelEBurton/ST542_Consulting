@@ -15,7 +15,7 @@
 #
 # + Load the appropriate packages
 
-setwd("C:\\Users\\mburt\\Downloads")
+#setwd("C:\\Users\\mburt\\Downloads")
 
 require(readxl)
 
@@ -47,6 +47,19 @@ TimeCalc <- function(x){
   return(time)
 }
 
-apply(dat_condensed[,3:74], MARGIN = 2, FUN = TimeCalc)
+x <- apply(dat_condensed[,3:74], MARGIN = 2, FUN = TimeCalc)
 
+y <- matrix(x, nrow = 6, ncol = 12,byrow = T)
 
+colMeans(y)
+
+control <- cbind(y[,1],y[,3],y[,5],y[,7],y[,9],y[,11])
+sample <- cbind(y[,2],y[,4],y[,6],y[,8],y[,10],y[,12])
+
+sample.means <- rowMeans(sample)
+control.means <- rowMeans(control)
+sample.means - control.means
+
+activity <- (1/sample - 1/control) * 1000
+activity
+rowMeans(activity)
