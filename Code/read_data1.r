@@ -1,14 +1,15 @@
-##----------------------------------------------
-## Purpose: 
-##   This script is used to read in the data from the carbonic 
-##     anhydrase analytical assay, and process the data for analysis.
-##
-## Assumptions: 
-##   We assume that the relevant data will always fall between the 
-##     range B89 to CU169.
-##
-## Author: Michael Burton (meburton@ncsu.edu)
-## Edited: 2/11/2020
+##------------------------------------------------------------------------#
+## Purpose:                                                               #
+##   This script is used to read in the data from the carbonic            #     
+##     anhydrase analytical assay, and process the data for analysis.     #  
+##                                                                        #  
+## Assumptions:                                                           #      
+##   We assume that the relevant data will always fall between the        #     
+##     range B89 to CU169.                                                #     
+##                                                                        #         
+## Author: Michael Burton (meburton@ncsu.edu)                             #         
+## Edited: 2/11/2020                                                      #   
+##------------------------------------------------------------------------#
 
 # + Set your working directory to the directory that contains the data
 # + Load the appropriate packages
