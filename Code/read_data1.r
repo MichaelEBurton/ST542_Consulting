@@ -7,8 +7,9 @@
 ##   We assume that the relevant data will always fall between the        #     
 ##     range B89 to CU169.                                                #     
 ##                                                                        #         
-## Author: Michael Burton (meburton@ncsu.edu)                             #         
-## Edited: 2/11/2020                                                      #   
+## Authors: Michael Burton (meburton@ncsu.edu)                            #  
+##          Anna Tomkins (actomkin@ncsu.edu)                              #
+## Edited: 2/12/2020                                                      #   
 ##------------------------------------------------------------------------#
 
 # + Set your working directory to the directory that contains the data
@@ -38,4 +39,5 @@ sample.means - control.means
 
 activity <- (1/sample - 1/control) * 1000
 activity
-rowMeans(activity)
+rowMeans(activity) # Enzyme appears to be less active towards the end
+colMeans(activity) # Activity doesnt vary much across rows
