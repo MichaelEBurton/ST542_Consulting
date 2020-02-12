@@ -15,7 +15,7 @@
 #
 # + Load the appropriate packages
 
-#setwd("C:\\Users\\mburt\\Downloads")
+setwd("C:\\Users\\mburt\\Downloads")
 
 require(readxl)
 
@@ -28,6 +28,7 @@ require(readxl)
 #
 # + Condense the Data to elminate the first two rows
 
+data <- read_machine_data(filename = fname, data_range = drange)
 dat <- read_xlsx("20200207_121325 CA-TB demo 80k Dilution 10 min incubation.xlsx",
                   col_names = TRUE, range = "B89:CU169",
                   progress = readxl_progress())
