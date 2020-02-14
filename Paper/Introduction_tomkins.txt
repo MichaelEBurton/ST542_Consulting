@@ -1,0 +1,17 @@
+﻿Introduction 
+Co2 mitigation
+Experimental design
+Potential improvemnts
+Background on chemistry involved
+Challenges with design of experiment
+Measurement error
+Human error
+Variation in wells among plate (not sure what happening here)
+Many blocking levels, day, user, plate, well? 
+What we are analyzing, difference between sample and control within wells, looking at time measurement within color changes to tell the activity of an enzyme.
+Not sure how to manage all of these variables
+Need to understand the chemical interactions better, and all of the mixture that goes into one well 
+Same enzyme per plate? 
+Sources of variability, how to limit errors as much as possible
+What the experiment process looks like
+What methods we will aim to use, or what the end goal is - recognizing enzyme activity and finding out if it is significant or now
