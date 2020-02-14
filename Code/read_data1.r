@@ -37,7 +37,10 @@ sample.means <- rowMeans(sample)
 control.means <- rowMeans(control)
 sample.means - control.means
 
-activity <- (1/sample - 1/control) * 1000
-activity
-rowMeans(activity) # Enzyme appears to be less active towards the end
-colMeans(activity) # Activity doesnt vary much across rows
+raw_activity <- (1/sample - 1/control) * 1000
+raw_activity
+rowMeans(raw_activity) # Enzyme appears to be less active towards the end
+colMeans(raw_activity) # Activity doesnt vary much across rows
+
+#enzyme_unit_activity <- 
+# What is the dilution factor 

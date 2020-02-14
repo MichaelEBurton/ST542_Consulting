@@ -1,3 +1,12 @@
+##------------------------------------------------------------------------#
+## Purpose:                                                               #
+##   This script is used to create functions used for tedious, repetitive #
+##     tasks. Function documentation is included in each function.        #
+##                                                                        #                                                 #     
+##                                                                        #         
+## Author: Michael Burton (meburton@ncsu.edu)                             #         
+## Edited: 2/13/2020                                                      #   
+##------------------------------------------------------------------------#
 
 
 # Function for processing machine data
@@ -106,3 +115,27 @@ S_curve_by_row <- function(x, row_letter){
   g
 }
 
+# Function to Unwind Activity Matrix
+unwind_activity <- function(x){
+  # Unwinds the activity matrix so wells are in order of how they were read
+  get_vectored <- numeric(0)
+  i <- 1
+  while(i < 6){
+    j <- 1
+    while(j < 7){
+      get_vectored <- rbind(get_vectored, x[i,j])
+      j <- j + 1
+    }
+    i <- i + 1
+    if(i == 7 ){
+      break
+    }
+    j <- 6
+    while(j > 0){
+      get_vectored <- rbind(get_vectored, x[i,j])
+      j <- j - 1
+    }
+    i <- i + 1
+  }
+  return(get_vectored)
+}
