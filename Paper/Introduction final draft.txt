@@ -1,35 +1,12 @@
-﻿ST 542 Introduction
+ST 542 Introduction
 Michael Burton, Anna Tomkins
 
+In collaboration with a group in the College of Textiles, we are hoping to analyze the ability of the enzymes catalytic potential in comparison to a control chemical. In order to analyze the ability, we use an assay, which is a procedure that quantitatively measures a characteristic of a chemical reaction. For this project, they are interested in measuring the amount of proton released during the reaction, which is measured by the ph of the solution. 
 
-Who: 
-In collaboration with a laboratory in the College of Textiles, 
-
-
-What: 
-Primary interest of our collaborator is to test the ability of an enzymes catalytic potential over some control chemical. 
+The main goal of this experiment is to study carbon mitigation, which is the removal of carbon from a chemical or gas. This project uses 96-well plates, with each well containing 100 microliters of buffer and indicator, 20 microliters of sample or control. After the plate is prepared, it is then put into a spectrometer, which injects each well with 120 microliters of CO2 water. After each well is injected, the spectrometer measures the time it takes for the color of the well to go from blue to yellow, which is a proxy for the ph of the chemical. The optical density is measured for this chemical, and the time recorded is once the optical density reaches .2, which was set by the lab team.
 
 
-Use an assay, which is a procedure that quantitatively measures a characteristic of a certain chemical reaction. For this project, they are interested in measuring the amount of proton released during the reaction, which is measured by the ph of the solution. 
+With this experiment, there are reasons to believe that there are some sources of error. First, there is a lot of variability within the measurements for the control. Currently there is a pattern of the control becoming more efficient over time, which then causes the sample to appear as if it is less effective overall. This pattern could be due to a lot of factors, such as daily air pressure within the lab, measurement error, which we will want to account for when we are analyzing the data. Additionally, there are multiple operators who are carrying out the experiment, which we may have to take into account, as they run the experiment with different methods/styles. 
 
 
-Where: College of Textiles
-
-
-Why: Wanting to study carbon mitigation, which is the removal of carbon from a chemical or gas. 
-
-
-How:
-This project uses 96-well plates, with each well containing 100 microliters of buffer and indicator, 20 microliters of sample or control. After the plate is prepared, it is then put into a machine which is called a spectrometer, which injects each well with 120 microliters of CO2 water. After each well is injected, the spectrometer measures the time it takes for the color of the well to go from blue to yellow, which is a proxy for the ph of the chemical. The optical density is measured for this chemical, and the time recorded is once the optical density reaches .2, which was set by the lab team.
-
-
-Issues: There are some reasons to believe there is some source of error in this experimental design. 
-
-
-First, there is a lot of variability within the measurements for the control. Currently there is a pattern of the control becoming more efficient over time, which then causes the sample to appear as if it is less effective overall. 
-
-
-This pattern could be due to a lot of factors, such as daily air pressure within the lab, measurement error, which we will want to account for when we are analyzing the data. Additionally, there are multiple operators who are carrying out the experiment, which we may have to take into account, as they run the experiment with different methods/styles. 
-
-
-Future work/goals: They are wanting to be able to analyze multiple chemicals or samples, not just carbonic anhydrase. They are also wanting some method to automate results directly from the data, which we could.
+In the future,they are wanting to be able to analyze multiple chemicals or samples, not just carbonic anhydrase. They are also wanting some method to automate results directly from the data, which we could.
