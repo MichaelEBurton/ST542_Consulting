@@ -2,7 +2,7 @@
 ## Purpose:                                                               #
 ##   This script is used to create plots to explore the data from the     #     
 ##     carbonic assay experiment on Feburary 7th, 2020                    #  
-##                                                                        #                                                 #     
+##                                                                        #                                                      
 ##                                                                        #         
 ## Author: Michael Burton (meburton@ncsu.edu)                             #         
 ## Edited: 2/13/2020                                                      #   
@@ -56,6 +56,64 @@ plot(1:36, get_vectored, type = "l", lwd = 2,
      ylab = "Raw Unit Activity")
 abline(b0, b1, col = 'red', lwd = 2)
 # trend line doesn't change much when well 25 is removed
+#==============================================================
+## Interaction Plots
+L <- c(y[1,], y[2,],y[3,],y[4,], y[5,], y[6,])
+response <- c(L[seq(1,72,by=2)],L[seq(2,72,by=2)])
+tinv <- 1/response
+trt <- as.factor(rep(c("control", "sample"), each = 36))
+arow <- as.factor(rep.int(rep(1:6, each = 6), times = 2))
+apair <- as.factor(rep.int(1:36, times = 2))
 
-acf(get_vectored)
+interaction_data <- cbind.data.frame(response, tinv, trt, arow,apair)
+
+attach(interaction_data)
+
+interaction.plot(x.factor = trt, trace.factor = apair, response = tinv)
+
+detach(interaction_data)
+
+
+g <- ggplot(data = interaction_data)
+g + 
+  geom_line(aes(y = tinv, x = trt, group = apair),color = apair, size = 1.2) + 
+  facet_grid(cols = vars(arow)) + 
+  scale_colour_manual(values = c("yellow", "black", "green", "blue", "cyan", "red")) +
+  xlab(label = "Control vs. Sample by Row") +
+  ylab(label = "Time Inverse") +
+  theme_bw()
+
+#yellow, black, green, blue, red, cyan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

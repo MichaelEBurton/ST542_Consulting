@@ -4,24 +4,7 @@ dat %>% pluck(2)
 dat[[1]] 
 unwind_activity
 dat[[1]]  -> times
-length(times)
-times(seq(1,79,by=2))
-times[seq(1,79,by=2)]
-times
-times[seq(2,80,by=2)]-times[seq(1,79,by=2)]
-plot(times[seq(2,80,by=2)]-times[seq(1,79,by=2)])
-times[seq(4,80,by=2)]-times[seq(3,79,by=2)]
-dat[[1]]  
-length(dat[[1]])
-dat[[2]]  
-y
-y[2]
-y
-y[seq(2,80,by=2)]-y[seq(1,79,by=2)]
-y[seq(2,72,by=2)]-y[seq(1,72,by=2)]
-plot(y[seq(2,72,by=2)]-y[seq(1,72,by=2)])
-plot(y[seq(2,72,by=2)],y[seq(1,72,by=2)])
-plot(y[seq(1,72,by=2)],y[seq(2,72,by=2)])
+
 y.row <- as.factor(rep(1:6,each=6))
 y.row 
 as.data.frame(resp=c(y[seq(1,72,by=2)],y[seq(2,72,by=2)]),trt=as.factor(rep(c("control","sample"),each=36)) -> assay.data
@@ -33,32 +16,20 @@ assay.df
 assay.df
 y[1:10]
 assay.df %>% head
-assay.df %>% mutate(arow=as.factor(rep(rep(1:6,each=6))) -> assay.df
-assay.df %>% mutate(arow=as.factor(rep(rep(1:6,each=6)),times=2)) -> assay.df
-rep(rep(1:6,each=6)),times=2) 
+
 rep(rep(1:6,each=6),times=2) 
-assay.df %>% mutate(arow=as.factor(rep(rep(1:6,each=6),times=2)) -> assay.df
-)
+
 assay.df %>% mutate(arow=as.factor(rep(rep(1:6,each=6),times=2))) -> assay.df
-assay.df 
-assay.df 
+
 assay.df %>% mutate(apair=as.factor(rep(1:36,each=2))) -> assay.df
-assay.df 
+
 assay.df %>% select(-apair) -> assay.df2
-assay.df2 
+ 
 assay.df %>% select(-apair) -> assay.df
-assay.df %>% head
+
 assay.df %>% mutate(apair=as.factor(rep(1:36,times=2))) -> assay.df
-assay.df 
-plot(resp ~ trt,data=assay.df)
-plot(resp ~ trt=pair,data=assay.df)
-interaction.plot(resp,trt,pair,data=assay.df)
-interaction.plot(response=resp,trt,pair,data=assay.df)
-interaction.plot
-? interaction.plot
-interaction.plot(trt,pair,resp,data=assay.df)
+
 attach(assay.df)
-interaction.plot(trt,pair,resp,data=assay.df)
 interaction.plot(trt,apair,resp,data=assay.df)
 lm(resp~trt+(1|apair))
 lmer(resp~trt+(1|apair))
@@ -136,7 +107,7 @@ assay.df %>% head
 lm.pairs <- lmer(1/resp ~ trt + (1|apair),data=assay.df)
 summary(lm.pairs) 
 plot(lm.pairs) 
-interaction.plot(trt,apair,1/resp,data=assay.df
+interaction.plot(trt,apair,1/resp,data=assay.df)
 y
 1/y
 100/y
