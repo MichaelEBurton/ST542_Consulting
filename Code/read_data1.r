@@ -42,5 +42,3 @@ raw_activity
 rowMeans(raw_activity) # Enzyme appears to be less active towards the end
 colMeans(raw_activity) # Activity doesnt vary much across rows
 
-#enzyme_unit_activity <- 
-# What is the dilution factor 

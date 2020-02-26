@@ -1,10 +1,3 @@
-source("read_data1.r")
-source("functions.r")
-source("read_data1.r")
-setwd()
-0
-getwd()
-source("read_data1.r")
 library(tidyverse)
 
 dat %>% pluck(2)
@@ -216,4 +209,4 @@ lm.pairs.rows <- lm(1/resp ~ trt + as.factor(arow)/as.factor(apair) ,data=assay.
 anova(lm.pairs.rows) 
 lm.pairs <- lm(1/resp ~ trt + as.factor(apair) ,data=assay.df)
 anova(lm.pairs) 
-savehistory("AnnaMichael.RHistory")
+
