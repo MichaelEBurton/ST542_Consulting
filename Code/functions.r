@@ -2,16 +2,16 @@
 ## Purpose:                                                               #
 ##   This script is used to create functions used for tedious, repetitive #
 ##     tasks. Function documentation is included in each function.        #
-##                                                                        #                                                 #     
+##                                                                        #                 
 ##                                                                        #         
 ## Author: Michael Burton (meburton@ncsu.edu)                             #         
-## Edited: 2/13/2020                                                      #   
+## Edited: 2/26/2020                                                      #   
 ##------------------------------------------------------------------------#
 
 
 # Function for processing machine data
 
-process_machine_data <- function(filename, data_range = "B89:CU169"){
+process_machine_data <- function(filename, data_range = "B89:CU169", exclude_first_two = TRUE){
   # Function Documentation:
   # This functions purpose is to read in the data from the excel files
   #  that are output from Dr. Salmon's optical density measuring
@@ -48,8 +48,21 @@ process_machine_data <- function(filename, data_range = "B89:CU169"){
   # + Save the time column as its own variable
   data <- readxl::read_xlsx(filename, col_names = TRUE, range = data_range,
                             progress = readxl::readxl_progress())
-
-  data_condensed <- data[, which(! colnames(data) %in% colnames(data)[3:26])]
+  if(exclude_first_two){
+    
+    data_condensed <- data[, which(! colnames(data) %in% colnames(data)[3:26])]
+    apply_range <- 3:74
+    row_n <- 6
+    col_n <- 12
+    
+  } else {
+    
+    data_condensed <- data
+    apply_range <- 3:98
+    row_n <- 8
+    col_n <- 12
+  
+  }
   
   colnames(data_condensed)[1:2] <- c("Time", "Temp")
   
@@ -64,10 +77,10 @@ process_machine_data <- function(filename, data_range = "B89:CU169"){
   #      this will match up with the plate used minus the first two columns
   # + Save y to the output list
   # + Return the output list
-  x <- apply(data_condensed[,3:74], MARGIN = 2, 
+  x <- apply(data_condensed[,apply_range], MARGIN = 2, 
              FUN = function(x) Time[which(x < .2)[1]])
   
-  y <- matrix(x, nrow = 6, ncol = 12,byrow = TRUE)
+  y <- matrix(x, nrow = row_n, ncol = col_n,byrow = TRUE)
   
   output[[2]] <- y
   
@@ -116,21 +129,30 @@ S_curve_by_row <- function(x, row_letter){
 }
 
 # Function to Unwind Activity Matrix
-unwind_activity <- function(x){
-  # Unwinds the activity matrix so wells are in order of how they were read
+unwind <- function(x, rows = 6, cols = 6){
+  # Unwinds any matrix from left to right, then down and right to left; continuing in a snake like pattern
+  # Function Documentation:
+  # This functions purpose is to unwind ant matrix that corresponds to a 96-well
+  #  plate. For unwinding acitivties the default column and rows are 6. 
+  #
+  # Parameters:
+  # * rows: Number of rows in your matrix
+  #
+  # * cols: Number of columns in your matrix
+
   get_vectored <- numeric(0)
   i <- 1
-  while(i < 6){
+  while(i < rows){
     j <- 1
-    while(j < 7){
+    while(j < cols + 1){
       get_vectored <- rbind(get_vectored, x[i,j])
       j <- j + 1
     }
     i <- i + 1
-    if(i == 7 ){
+    if(i == cols + 1 ){
       break
     }
-    j <- 6
+    j <- cols
     while(j > 0){
       get_vectored <- rbind(get_vectored, x[i,j])
       j <- j - 1

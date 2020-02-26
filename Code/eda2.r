@@ -41,7 +41,7 @@ box_by_row %>% group_by(id) %>% summarise(Variance = sd(Value)^2)
 
 #===================================================
 ## Unit Activity over time
-get_vectored <- unwind_activity(raw_activity)
+get_vectored <- unwind(raw_activity)
 
 
 x <- 1:36
