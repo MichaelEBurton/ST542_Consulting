@@ -83,12 +83,18 @@ g +
   ylab(label = "Time Inverse") +
   theme_bw()
 
-#yellow, black, green, blue, red, cyan
+#=====================================================================
+## Formal testing paired t-test, Mixed Model
+Y <- interaction_data[1:36,2]
+X <- interaction_data[37:72,2]
+
+t.test(x = X, y = Y, paired = TRUE, var.equal = FALSE)
 
 
+require(lme4)
 
-
-
+lin_mod <- lmer(tinv ~ trt + (1 | apair), data = interaction_data)
+anova(lin_mod)
 
 
 
