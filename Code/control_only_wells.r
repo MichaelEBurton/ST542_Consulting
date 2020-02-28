@@ -1,3 +1,5 @@
+setwd("C:\\Users\\mburt\\Downloads")
+
 fname <- "20200217_153436 ST team Tris control only all 96-well tested 200 cycles.xlsx"
 
 drange <- "B79:CU279"
@@ -16,6 +18,8 @@ plot(x, get_vectored, type = "l", lwd = 2,
      main = "Time to 0.2 O.D. 200 Cycles", xlab = "Well Order",
      ylab = "Time")
 abline(b0, b1, col = 'red', lwd = 2)
+
+S_curve_by_row(processed[[1]], "A")
 
 ###########################################################################################################
 
