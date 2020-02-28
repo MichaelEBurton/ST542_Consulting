@@ -57,3 +57,4 @@ plot(x, get_vectored, type = "l", lwd = 2,
      main = "Time to 0.2 O.D. 120 Cycles", xlab = "Well Order",
      ylab = "Time")
 abline(b0, b1, col = 'red', lwd = 2)
+
