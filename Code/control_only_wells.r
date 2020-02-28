@@ -16,7 +16,7 @@ b1 <- fit$coefficients[2]
 
 plot(x, get_vectored, type = "l", lwd = 2, 
      main = "Time to 0.2 O.D. 200 Cycles", xlab = "Well Order",
-     ylab = "Time")
+     ylab = "Time", ylim = c(6,13))
 abline(b0, b1, col = 'red', lwd = 2)
 
 S_curve_by_row(processed[[1]], "A")
@@ -39,7 +39,7 @@ b1 <- fit$coefficients[2]
 
 plot(x, get_vectored, type = "l", lwd = 2, 
      main = "Time to 0.2 O.D. 80 Cycles", xlab = "Well Order",
-     ylab = "Time")
+     ylab = "Time", ylim = c(6,13))
 abline(b0, b1, col = 'red', lwd = 2)
 
 ##############################################################################################################
@@ -59,6 +59,6 @@ b1 <- fit$coefficients[2]
 
 plot(x, get_vectored, type = "l", lwd = 2, 
      main = "Time to 0.2 O.D. 120 Cycles", xlab = "Well Order",
-     ylab = "Time")
+     ylab = "Time", ylim = c(6,13))
 abline(b0, b1, col = 'red', lwd = 2)
 
