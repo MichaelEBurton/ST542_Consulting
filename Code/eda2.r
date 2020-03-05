@@ -19,19 +19,31 @@ S_curve_by_row(dat, "C")
 ctrl <- dplyr::arrange(reshape2::melt(control), Var1)
 ctrl[,2] <- "Control"
 ctrl[,4] <- paste0(ctrl[,2],ctrl[,1])
-colnames(ctrl) <- c("Row", "Column", "Value", "id")
+ctrl[,5] <- rep(c(seq(1,11,2)), times = 6)
+ctrl[,6] <- paste0(ctrl[,2],ctrl[,5])
+colnames(ctrl) <- c("Row", "Trt", "Value", "rid", "Column", "cid")
 
 
 samp <- dplyr::arrange(reshape2::melt(sample), Var1)
 samp[,2] <- "Sample"
 samp[,4] <- paste0(samp[,2],samp[,1])
-colnames(samp) <- c("Row", "Column", "Value", "id")
+samp[,5] <- rep(c(seq(2,12,2)), times = 6)
+samp[,6] <- paste0(samp[,2],samp[,5])
+colnames(samp) <- c("Row", "Trt", "Value", "rid", "Column", "cid")
 
-box_by_row <- dplyr::arrange(rbind(ctrl,samp), Row)
+box_by_row <- dplyr::arrange(rbind(ctrl,samp), Row) 
 
+# Boxplot by row and trt
 ggplot(data = box_by_row) + 
-  geom_boxplot(aes(x = id, y =Value, color = id)) + 
+  geom_boxplot(aes(x = rid, y =Value, color = rid)) + 
   xlab("Row & Specimen Id") +
+  ylab("Time to baseline (.2)") + 
+  theme_bw()
+
+# Boxplot by column
+ggplot(data = box_by_row) + 
+  geom_boxplot(aes(x = cid, y =Value, color = cid)) + 
+  xlab("Column & Specimen Id") +
   ylab("Time to baseline (.2)") + 
   theme_bw()
 
