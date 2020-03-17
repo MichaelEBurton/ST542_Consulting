@@ -18,3 +18,26 @@
 ##          Anna Tomkins (actomkin@ncsu.edu)                              #
 ## Edited: 3/13/2020                                                      #   
 ##------------------------------------------------------------------------#
+require(lme4)
+require(dplyr)
+simulation_data <- dplyr::arrange(interaction_data, apair)
+
+Fval <- numeric()
+n <- nrow(interaction_data)
+set.seed(252)
+for(i in 1:1000){
+  # Bootstrap
+  pairs <- sample(1:36, size = 36,replace = TRUE)
+  
+  # You need to be sure to select both datapoints from the 
+  indices <- c(2*pairs, (2*pairs) - 1)
+  
+  # Seize the Data
+  boot.dat <- simulation_data[indices,]
+  
+  lin_mod <- lmer(tinv ~ trt + (1 | apair), data = boot.dat)
+  results <- anova(lin_mod)
+  Fval[i] <-results$`F value`
+}
+
+boxplot(Fval)
