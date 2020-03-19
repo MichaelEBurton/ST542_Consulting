@@ -16,7 +16,7 @@
 ##                                                                        #         
 ## Authors: Michael Burton (meburton@ncsu.edu)                            #  
 ##          Anna Tomkins (actomkin@ncsu.edu)                              #
-## Edited: 3/13/2020                                                      #   
+## Edited: 3/18/2020                                                      #   
 ##------------------------------------------------------------------------#
 require(lme4)
 require(dplyr)
@@ -35,7 +35,7 @@ for(i in 1:1000){
   # Seize the Data
   boot.dat <- simulation_data[indices,]
   
-  lin_mod <- lmer(tinv ~ trt + (1 | apair), data = boot.dat)
+  lin_mod <- lmer(tinv ~ trt + (1 | arow), data = boot.dat)
   results <- anova(lin_mod)
   Fval[i] <-results$`F value`
 }
