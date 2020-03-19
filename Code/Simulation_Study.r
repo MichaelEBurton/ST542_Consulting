@@ -22,12 +22,19 @@ require(lme4)
 require(dplyr)
 simulation_data <- dplyr::arrange(interaction_data, apair)
 
-Fval <- numeric()
+Fval_trt <- numeric()
+Fval_int <- numeric()
+Pval_trt<- numeric()
+Pval_int<- numeric()
+
 n <- nrow(interaction_data)
 set.seed(252)
 for(i in 1:1000){
   # Bootstrap
   pairs <- sample(1:36, size = 36,replace = TRUE)
+  
+  df_pairs <- unique(pairs) - 1
+  df_error <- 71 - 5 - 5 - 1 - df_pairs
   
   # You need to be sure to select both datapoints from the 
   indices <- c(2*pairs, (2*pairs) - 1)
@@ -35,9 +42,14 @@ for(i in 1:1000){
   # Seize the Data
   boot.dat <- simulation_data[indices,]
   
-  lin_mod <- lmer(tinv ~ trt + (1 | arow), data = boot.dat)
+  lin_mod <- lmer(tinv ~ trt + arow + trt*arow + (1 | apair), data = boot.dat)
   results <- anova(lin_mod)
-  Fval[i] <-results$`F value`
+  Fval_trt[i] <- results$`F value`[1]
+  Fval_int[i] <- results$`F value`[3]
+  Pval_trt[i] <- pf(Fval_trt[i], 1, 5)
+  Pval_int[i] <- pf(Fval_int[i], 5, df_error)
+  
 }
 
-boxplot(Fval)
+boxplot(Pval_trt, main = "P-values: Treatment Effect df1 = 1, df2 = 5")
+boxplot(Pval_int, main = "P-values: Interaction Effect df1 = 5, df2 = N")
