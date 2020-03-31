@@ -33,8 +33,8 @@ for(i in 1:1000){
   # Bootstrap
   pairs <- sample(1:36, size = 36,replace = TRUE)
   
-  df_pairs <- unique(pairs) - 1
-  df_error <- 71 - 5 - 5 - 1 - df_pairs
+  
+  df_error <- 71 - 5 - 5 - 1 - 25
   
   # You need to be sure to select both datapoints from the 
   indices <- c(2*pairs, (2*pairs) - 1)
@@ -46,8 +46,8 @@ for(i in 1:1000){
   results <- anova(lin_mod)
   Fval_trt[i] <- results$`F value`[1]
   Fval_int[i] <- results$`F value`[3]
-  Pval_trt[i] <- pf(Fval_trt[i], 1, 5)
-  Pval_int[i] <- pf(Fval_int[i], 5, df_error)
+  Pval_trt[i] <- 1 - pf(Fval_trt[i], 1, 5)
+  Pval_int[i] <- 1 - pf(Fval_int[i], 5, df_error)
   
 }
 

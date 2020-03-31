@@ -17,6 +17,12 @@ rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
 
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
+
+
+# Graphical Exploration
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
   xlab("Row Id") +
@@ -47,6 +53,10 @@ col_plot <- reshape2::melt(CO2_200)
 rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
+
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
 
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
@@ -79,6 +89,10 @@ rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
 
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
+
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
   xlab("Row Id") +
@@ -109,6 +123,10 @@ col_plot <- reshape2::melt(DI_120)
 rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
+
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
 
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
@@ -141,6 +159,10 @@ rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
 
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
+
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
   xlab("Row Id") +
@@ -171,6 +193,10 @@ col_plot <- reshape2::melt(DI_300)
 rid <- rep.int(1:8, times = 12)
 row_plot <- cbind(col_plot, rid)
 rm(col_plot, rid)
+
+# Compute Variance by row,column respectively
+row_plot %>% group_by(rid) %>% summarise(var(value))
+row_plot %>% group_by(variable) %>% summarise(var(value))
 
 ggplot(data = row_plot) + 
   geom_boxplot(aes(x = rid, y =value, group = rid)) + 
