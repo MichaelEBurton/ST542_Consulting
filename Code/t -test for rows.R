@@ -4,6 +4,7 @@
 
 #####################################################
 
+# row test 
 x <- raw_activity
 rowMeans(x)
 #rownames(x) <- c("c","d","e","f","g","h")
@@ -32,3 +33,4 @@ xp$activity <- as.numeric(xp$activity)
 
 xp.out <- lm(xp$activity ~ xp$row)
 anova(xp.out)
+
