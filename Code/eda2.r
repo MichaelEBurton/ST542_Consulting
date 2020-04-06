@@ -49,7 +49,8 @@ ggplot(data = box_by_row) +
 
 #===================================================
 #Variance of control vs sample
-box_by_row %>% group_by(id) %>% summarise(Variance = sd(Value)^2)
+box_by_row %>% group_by(rid) %>% summarise(Variance = sd(Value)^2)
+box_by_row %>% group_by(cid) %>% summarise(Variance = sd(Value)^2)
 
 #===================================================
 ## Unit Activity over time
@@ -61,7 +62,7 @@ fit <- lm(get_vectored ~ x)
 b0 <- fit$coefficients[1]
 b1 <- fit$coefficients[2]
 
-plot(fit)
+#plot(fit)
 
 plot(1:36, get_vectored, type = "l", lwd = 2, 
      main = "Raw Unit Activity over Time", xlab = "Well Order",
@@ -107,6 +108,9 @@ require(lme4)
 
 lin_mod <- lmer(tinv ~ trt + (1 | apair), data = interaction_data)
 anova(lin_mod)
+
+setwd('~/Repos/ST542_Consulting/')
+
 
 
 

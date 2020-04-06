@@ -52,4 +52,4 @@ for(i in 1:1000){
 }
 
 boxplot(Pval_trt, main = "P-values: Treatment Effect df1 = 1, df2 = 5")
-boxplot(Pval_int, main = "P-values: Interaction Effect df1 = 5, df2 = N")
+boxplot(Pval_int, main = "P-values: Interaction Effect df1 = 5, df2 = 25")

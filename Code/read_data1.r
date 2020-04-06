@@ -42,3 +42,4 @@ raw_activity
 rowMeans(raw_activity) # Enzyme appears to be less active towards the end
 colMeans(raw_activity) # Activity doesnt vary much across rows
 
+setwd('~/Repos/ST542_Consulting/')
