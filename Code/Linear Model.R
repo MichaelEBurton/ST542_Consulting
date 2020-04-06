@@ -13,9 +13,9 @@ moddat1 <- data.frame(cbind(trt,activity1,row,pair))
 
 #Linear model fitting activity as response (not sure if I set this up right), trt as 0 or 1 for 
 #control or sample, row added as a variable with values 1:6, and pairs 1:36 as a random effect
-lin.mod1 <- lmer(activity1~ trt + row + (1 | pair),data = moddat1)
+lin.mod1 <- lmer(activity1~ trt + row + trt:row + (1 | pair),data = moddat1)
 summary(lin.mod1)
-
+anova(lin.mod1)
 #Using raw_activity data (combined sample control)  
 #activity <- c(raw_activity[,1],raw_activity[,2],raw_activity[,3],raw_activity[,4],raw_activity[,5],raw_activity[,6])
 #activity
