@@ -62,4 +62,4 @@ confidenceint <- data.frame(conf.est,conf.vars,conf.int.lower,conf.int.upper)
 rownames(confidenceint) <- c("Row 1","Row 2","Row 3","Row 4","Row 5","Row 6")
 colnames(confidenceint) <- c("Activity estimate", "Variance", "lower CI", "upper CI")
 confidenceint
-confint(lin_mod)
+
