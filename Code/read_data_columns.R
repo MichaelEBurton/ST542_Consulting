@@ -22,12 +22,13 @@ fname <- "20200207_121325 CA-TB demo 80k Dilution 10 min incubation.xlsx"
 
 drange <- "B89:CU169"
 
-processed <- process_machine_data(filename = fname, data_range = drange)
+processed <- process_machine_data(filename = fname, data_range = drange, exclude_first_two = FALSE)
 
 dat <- processed[[1]]
 
+dat <-  dat[,-c(3:14)]
 
-y <- processed[[2]]
+y <- processed[[2]][-c(1,2),]
 
 colMeans(y)
 
@@ -44,3 +45,6 @@ rowMeans(raw_activity) # Enzyme appears to be less active towards the end
 colMeans(raw_activity) # Activity doesnt vary much across rows
 
 setwd('~/Repos/ST542_Consulting/')
+
+
+

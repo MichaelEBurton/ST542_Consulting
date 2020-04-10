@@ -26,6 +26,8 @@ lin_mod <- lmer(tinv ~ trt + arow + arow:trt + (1 | apair), data = interaction_d
 
 results <- anova(lin_mod)
 
+interaction.plot(x.factor = interaction_data$trt, trace.factor = interaction_data$arow, response = interaction_data$tinv,
+                 xlab = "Treatment", ylab = "Mean of 1/time to reach O.D. 0.2")
 # Not sure if this is right? Does anova give us the correct F-values?
 F_trt <- results$`Mean Sq`[1]/results$`Mean Sq`[3]
 F_row <- results$`Mean Sq`[2]/results$`Mean Sq`[3]
@@ -35,7 +37,7 @@ p_trt <- 1 - pf(F_trt, df1 = 1, df2 = 5)
 p_row <- 1 - pf(F_row, df1 = 1, df2 = 5)
 p_int <- 1 - pf(F_int, df1 = 5, df2 = 25)
 
-confint(lin_mod)*1000
+confint(lin_mod) * 1000
 # Calculate the Correct Standard errors, not entirely sure how to go about this?
 #lin_mod <- lme(tinv ~ trt + arow + arow:trt ,
 #               random = ~ apair ,
