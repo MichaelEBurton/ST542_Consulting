@@ -71,14 +71,13 @@ abline(b0, b1, col = 'red', lwd = 2)
 # trend line doesn't change much when well 25 is removed
 #==============================================================
 ## Interaction Plots
-L <- c(y[1,], y[2,],y[3,],y[4,], y[5,], y[6,])
-response <- c(L[seq(1,72,by=2)],L[seq(2,72,by=2)])
+L <- c(y[2,], y[3,],y[4,],y[5,], y[6,], y[7,],y[8,])
+response <- c(L[seq(1,84,by=2)],L[seq(2,84,by=2)])
 tinv <- 1/response
-trt <- as.factor(rep(c("control", "sample"), each = 36))
-arow <- as.factor(rep.int(rep(1:6, each = 6), times = 2))
-apair <- as.factor(rep.int(1:36, times = 2))
+trt <- as.factor(c(rep(c("control"),12),rep(c("control", "sample"), each = 36)))
+arow <- as.factor(c(rep(1,each=12),rep.int(rep(2:7, each = 6), times = 2)))
 
-interaction_data <- cbind.data.frame(response, tinv, trt, arow,apair)
+interaction_data <- cbind.data.frame(response, tinv, trt, arow)
 
 attach(interaction_data)
 
