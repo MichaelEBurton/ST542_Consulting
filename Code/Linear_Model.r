@@ -25,6 +25,9 @@ require(lme4)
 lin_mod <- lmer(tinv ~ trt + arow + arow:trt + (1 | apair), data = interaction_data)
 results <- anova(lin_mod)
 sum <- summary(lin_mod)
+ranef(lin_mod)$apair
+#purely Fixed effects model
+aov (tinv ~ trt + arow + arow:trt,data = interaction_data)
 # Not sure if this is right? Does anova give us the correct F-values?
 F_trt <- results$`Mean Sq`[1]/results$`Mean Sq`[3]
 F_row <- results$`Mean Sq`[2]/results$`Mean Sq`[3]
