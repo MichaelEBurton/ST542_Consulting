@@ -71,7 +71,9 @@ abline(b0, b1, col = 'red', lwd = 2)
 # trend line doesn't change much when well 25 is removed
 #==============================================================
 ## Interaction Plots
+
 L <- c(y[1,], y[2,],y[3,],y[4,], y[5,], y[6,])
+
 response <- c(L[seq(1,72,by=2)],L[seq(2,72,by=2)])
 tinv <- 1/response
 trt <- as.factor(rep(c("control", "sample"), each = 36))

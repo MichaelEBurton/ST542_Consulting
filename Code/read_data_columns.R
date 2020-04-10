@@ -46,5 +46,25 @@ colMeans(raw_activity) # Activity doesnt vary much across rows
 
 setwd('~/Repos/ST542_Consulting/')
 
+################################################################
+# This is what I changed to just use the controls for the top row, I eliminated the row and pair column since we don't need it?
+L <- c(y[1,], y[2,],y[3,],y[4,], y[5,], y[6,])
 
+response <- c(L[seq(1,72,by=2)],L[seq(2,72,by=2)])
+tinv <- 1/response
+trt <- as.factor(rep(c("control", "sample"), each = 36))
+arow <- as.factor(rep.int(rep(1:6, each = 6), times = 2))
+apair <- as.factor(rep.int(1:36, times = 2))
 
+interaction_data <- cbind.data.frame(response, tinv, trt, arow,apair)
+interaction_data <- dplyr::filter(interaction_data, trt != 'control')
+interaction_data['acol'] <- as.factor(rep.int(seq(2,12,2), times = 6))
+interaction_data <- interaction_data[,-c(4,5)]
+
+response <- processed[[2]][2,seq(2,12,2)]
+trt <- rep('control', 6)
+tinv <- 1/response
+acol <- seq(2,12,2)
+controls <- cbind.data.frame(response, tinv, trt, acol)
+
+interaction_data <- rbind.data.frame(controls,interaction_data)
