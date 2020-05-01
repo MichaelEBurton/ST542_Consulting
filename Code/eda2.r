@@ -12,10 +12,16 @@ require(dplyr)
 
 #========================================================
 ## S Curves
+## Use this function to recreate the plots returned by the spectrophotometer.
+## You can plot all curves from a single row by specifying the row letter in the second argument.
+
 S_curve_by_row(dat, "C")
 
 #========================================================
 ## Boxplots
+## This code is used to plot the boxplot of time to reach an O.D. of 0.2 or lower.
+## We visualize the distributions of these times for each row and column by treatment.
+
 ctrl <- dplyr::arrange(reshape2::melt(control), Var1)
 ctrl[,2] <- "Control"
 ctrl[,4] <- paste0(ctrl[,2],ctrl[,1])
@@ -54,6 +60,8 @@ box_by_row %>% group_by(cid) %>% summarise(Variance = sd(Value)^2)
 
 #===================================================
 ## Unit Activity over time
+# Call the unwind acitivity function to put activities in order of how the machine moves
+
 get_vectored <- unwind(raw_activity)
 
 
@@ -63,12 +71,16 @@ b0 <- fit$coefficients[1]
 b1 <- fit$coefficients[2]
 
 #plot(fit)
+# Plot the trend in the acitivity times from activity 1 to acitivty 36 (72 pairs),
+#   then overlay the linear best fit line for the data.
 
 plot(1:36, get_vectored, type = "l", lwd = 2, 
      main = "Raw Unit Activity over Time", xlab = "Well Order",
      ylab = "Raw Unit Activity")
 abline(b0, b1, col = 'red', lwd = 2)
+
 # trend line doesn't change much when well 25 is removed
+
 #==============================================================
 ## Interaction Plots
 

@@ -47,7 +47,8 @@ colMeans(raw_activity) # Activity doesnt vary much across rows
 setwd('~/Repos/ST542_Consulting/')
 
 ################################################################
-# This is what I changed to just use the controls for the top row, I eliminated the row and pair column since we don't need it?
+# This is what I changed to just use the controls for the top row, 
+# I eliminated the row and pair column since we don't need it
 L <- c(y[1,], y[2,],y[3,],y[4,], y[5,], y[6,])
 
 response <- c(L[seq(1,72,by=2)],L[seq(2,72,by=2)])
